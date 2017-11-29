@@ -17,11 +17,15 @@ namespace KeyboardViewer
         private KeyManager _keyManager;
         private Color _backgroundColor = Color.Blue;
         private Random _rng;
+        private Sprite _aKey;
 
         protected override void OnLoad(EventArgs e)
         {
             _keyManager = new KeyManager();
             _rng = new Random();
+            _aKey = new Sprite();
+
+            _keyManager.View.RegisterKey(Key.A, _aKey);
 
             base.OnLoad(e);
 
@@ -32,7 +36,8 @@ namespace KeyboardViewer
         {
             _keyManager.AddKey(e.Key);
             _keyManager.PrintKeys();
-            _backgroundColor = Color.FromArgb(_rng.Next(0, 255), _rng.Next(0, 255), _rng.Next(0, 255));
+            //_backgroundColor = Color.FromArgb(_rng.Next(0, 255), _rng.Next(0, 255), _rng.Next(0, 255));
+            
             base.OnKeyDown(e);
         }
 
@@ -58,9 +63,17 @@ namespace KeyboardViewer
             GL.ClearColor(_backgroundColor);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
+            foreach (var k in _keyManager.Keys)
+            {
+                k.Draw();
+            }
+        }
 
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
 
-            SwapBuffers();
+            Console.WriteLine("[NOTE] Window resized. Current size: " + this.Size);
         }
     }
 }
