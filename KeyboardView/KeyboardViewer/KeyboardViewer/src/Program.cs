@@ -10,7 +10,7 @@ namespace KeyboardViewer
     {
         static void Main(string[] args)
         {
-            Window window = new Window();
+            Window window = new Window(1280,720);
             window.Run();
         }
     }

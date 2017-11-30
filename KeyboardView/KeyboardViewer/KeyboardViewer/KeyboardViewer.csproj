@@ -46,24 +46,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\ContentPipe.cs" />
     <Compile Include="src\KeyboardView.cs" />
     <Compile Include="src\KeyManager.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Sprite.cs" />
+    <Compile Include="src\SpriteBatch.cs" />
+    <Compile Include="src\Texture2D.cs" />
+    <Compile Include="src\View.cs" />
     <Compile Include="src\Window.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
-    <None Include="res\keyboard.ai" />
+    <None Include="Content\keyboard.ai" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\a.png" />
+    <None Include="Content\a.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\q.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\keyboard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y $(ProjectDir)res $(ProjectDir)$(OutDir)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -33,7 +33,6 @@ namespace KeyboardViewer
             {
                 if (_view.Contains(k))
                 {
-                    
                     _view.GetKey(k).Typed();
                 }
             }

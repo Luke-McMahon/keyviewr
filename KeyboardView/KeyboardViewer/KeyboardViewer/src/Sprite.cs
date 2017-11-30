@@ -12,7 +12,7 @@ namespace KeyboardViewer
         private readonly int _texId;
         private const int VERTEX_POS = 128;
 
-        public Sprite() : this("a.png")
+        public Sprite() : this("Content/a.png")
         {
         }
 
